@@ -106,14 +106,6 @@ This tool follows a **baseline integrity model**, where:
 
 ---
 
-## 🚫 Ignored Files
-
-```
-database.json
-__pycache__/
-```
-
----
 
 ## 💼 Use Case
 
@@ -123,14 +115,6 @@ __pycache__/
 
 ---
 
-## 📌 Future Improvements
-
-* Logging system (audit trail)
-* Real-time monitoring
-* Colored CLI output
-* GUI interface
-
----
 
 ## 📄 License
 
