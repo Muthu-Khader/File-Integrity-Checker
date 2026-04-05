@@ -1,25 +1,39 @@
-# File Integrity Checker
+# 🔐File Integrity Checker
 
-## Description
-File Integrity Checker is a tool designed to monitor and verify the integrity of files in your system. It helps in identifying unauthorized changes, ensuring that your files remain unchanged over time. This project aims to provide users with a reliable way to maintain file integrity, which is crucial for data security and compliance.
+## 📌Description
+A CLI-based File Integrity Monitoring tool built using Python that detects file modifications, additions, and deletions using SHA-256 hashing.
 
-## Features
-- **Real-time Monitoring:** Continuously checks file integrity and notifies about unauthorized changes.
-- **Detailed Reporting:** Provides logs and detailed reports of any changes detected.
-- **Customizable Settings:** Users can configure which files or directories to monitor.
-- **Cross-Platform Compatibility:** Works on various operating systems including Windows, Linux, and macOS.
+This tool creates a baseline snapshot of file hashes and compares future scans to identify any unauthorized or unexpected changes.
 
-## Project Structure
+## 🚀 Features
+*🔍 Scan files and folders
+*🧠 Baseline creation for integrity tracking
+*⚠️ Detect:
+    *Modified files
+    *New files
+    *Deleted files
+*👤 User-controlled updates for security
+*🧱 Modular architecture (clean code design)
+*💻 Command Line Interface (CLI)
+
+## 🛠️ Tech Stack
+*Python
+*hashlib (SHA-256)
+*os, sys (file system + CLI)
+*JSON (data storage)
+
+## 📂Project Structure
 ```
 File-Integrity-Checker/
-├── src/                  # Source code
-├── tests/                # Unit tests
-├── docs/                 # Documentation
-├── README.md             # Project documentation
-└── LICENSE               # License information
+├── main.py/                  # CLI Entry point
+├── core.py/                  # Logic (compare, load, save) 
+├── scanner.py/               # File Scanning
+├── hash_utils.py/            # Hash generation
+├── utils.py/                 # Helper functions
+└── database.json             # Stores file hashes (ignored in git)
 ```
 
-## Installation
+## ⚙️Installation
 To install the File Integrity Checker, follow these steps:
 1. Clone the repository:
    ```bash
@@ -29,41 +43,38 @@ To install the File Integrity Checker, follow these steps:
    ```bash
    cd File-Integrity-Checker
    ```
-3. Install required dependencies:
+3. Run the Tool:
    ```bash
-   npm install
+   python main.py scan <path>
    ```
 
-## Usage
-To start monitoring files, run:
+## 🧪Usage
+Scan a folder:
 ```bash
-node src/monitor.js
+python main.py scan "test folder"
 ```
-You can specify the files or directories to monitor in the configuration file located at `config.json`.
+Scan a single file:
+```bash
+python main.py scan test.txt
+```
 
-## How It Works
-File Integrity Checker uses hashing algorithms to create a snapshot of files when they are first monitored. On subsequent scans, it compares the current file hashes with the original to detect any changes.
+## 🧠How It Works
+1. The tool scans files and generates SHA-256 hashes
+2. Stores hashes as a baseline in database.json
+3. On next scan:
+     *Compares current hashes with stored hashes
+     *Detects changes (modified, new, deleted)
+4.Prompts user before updating baseline (for security)
 
-## Security Features
-- **Encryption:** Sensitive information is encrypted to protect against unauthorized access.
-- **Access Control:** Only authorized users can configure and access the monitoring settings.
-- **Log Management:** All integrity checks are logged securely for audit purposes.
+## 🔐Security Features
+This tool follows a baseline integrity model, where:
+*Initial scan = trusted state
+*Future scans = verification against baseline
 
-## Contributing Guidelines
-1. Fork the repository.
-2. Create a new feature branch:
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-3. Add your changes and commit:
-   ```bash
-   git commit -m 'Add some feature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/YourFeature
-   ```
-5. Open a pull request.
+## 💼 Use Case
+*Detect unauthorized file changes
+*Monitor important system/project files
+*Learn file integrity concepts in cybersecurity
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
