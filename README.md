@@ -6,8 +6,7 @@ A CLI-based File Integrity Monitoring tool built using Python that detects file 
 This tool creates a baseline snapshot of file hashes and compares future scans to identify any unauthorized or unexpected changes.
 
 ## 🚀 Features
--*🔍 Scan files and folders
-*🧠 Baseline creation for integrity tracking
+*🔍 Scan files and folders*🧠 Baseline creation for integrity tracking
 *⚠️ Detect:
     *Modified files
     *New files
